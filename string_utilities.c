@@ -12,7 +12,8 @@ int tokenize_line(char *s, char *tokens[])
 	int i, status;
 	char *token, *hold;
 
-	token = strtok_r(s, " \t\n", &hold);
+	token = strtok(s, " \t\n");
+	hold = &token
 	status = check_if_comment(&token);
 	if (status == 1)
 		return (0);
@@ -21,7 +22,8 @@ int tokenize_line(char *s, char *tokens[])
 	{
 		tokens[i] = token;
 
-		token = strtok_r(NULL, " \t\n", &hold);
+		token = strtok(hold, " \t\n");
+		hold = &token
 	}
 
 	return (1);
