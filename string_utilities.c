@@ -10,11 +10,12 @@
 int tokenize_line(char *s, char *tokens[])
 {
 	int i, status;
-	char *token;
-	char *hold;
+	char *token = NULL;
+	char *hold = NULL;
+	char delimiters[] = " \t\n";
 
 	/*strtok_r returns a character pointer*/
-	token = strtok_r(s, " \t\n", &hold);
+	token = strtok_r(s, delimiters, &hold);
 	status = check_if_comment(&token);
 	if (status == 1)
 		return (0);
@@ -23,7 +24,7 @@ int tokenize_line(char *s, char *tokens[])
 	{
 		tokens[i] = token;
 
-		token = strtok_r(NULL, " \t\n", &hold);
+		token = strtok_r(NULL, delimiters, &hold);
 	}
 
 	return (1);
