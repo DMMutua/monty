@@ -22,8 +22,26 @@ int check_if_number(char *str)
 
 /**
  * check_if_push - checks if the opcode is a string and sets value
- * @tok_line: line of opcode
+ * @tok_line: line of operation code
  * @lineno: line number
+ *
  * Return: 1 if success and 0 if not pushed
  */
 int check_if_push(char *tok_line[], int lineno)
+{
+	if (strcmp(tok_line[0], "push") == 0)
+	{
+		if (tok_line[1][0] != '\0' && check_if_number(tok_line[1]))
+			value[0] = atoi(tok_line[1]);
+		else
+		{
+			printf("L%d: usage: push integer\n", lineno);
+			value[2] = 1;
+			return (0);
+		}
+
+		return (1);
+	}
+
+	return (0);
+}
