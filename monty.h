@@ -45,7 +45,7 @@ void check_file_stream(FILE *fp, char *filename);
 void check_opcode(void (*opcode)(), int lineno, char *cmd);
 void check_fail(char *line, FILE *fp, stack_t *head);
 
-/*Functions that perform LIFO and FIFO operations in Doubly Linked List (Stack) [stackfunctions1.c] */
+/*Functions to maintain Doubly Linked List Data (Stack) [stackfunctions1.c] */
 int add_to_stack(stack_t **head, int n);
 void free_stack(stack_t *head);
 int delete_stack_head(stack_t **head);
