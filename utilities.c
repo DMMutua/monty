@@ -45,3 +45,30 @@ int check_if_push(char *tok_line[], int lineno)
 
 	return (0);
 }
+/**
+ * is_ascii - checks if a character is a valid ascii
+ * @c: character to check
+ * Return: 0 if not and 1 if it is an ascii
+ */
+
+int is_ascii(int c)
+{
+	if (c < 0 || c > 127)
+		return (0);
+	return (1);
+}
+
+/**
+ * check_data_structure - checks whether or not stack or queue opcode given
+ * @opcode: opcode given
+ * Description: If opcode is stack or queue, changes the the extern value to
+ * 0 if stack and 1 if queue.
+ */
+
+void check_data_structure(char *opcode)
+{
+	if (strcmp(opcode, "stack") == 0)
+		value[1] = 0;
+	else if (strcmp(opcode, "queue") == 0)
+		value[1] = 1;
+}
