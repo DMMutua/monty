@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * tokenize_line = Tokenize command input plus any other arguments
+ * tokenize_line - Tokenize command input plus any other arguments
  * @s: line to parse
  * @tokens: buffer for filling
  *
@@ -10,12 +10,9 @@
 int tokenize_line(char *s, char *tokens[])
 {
 	int i, status;
-	char *token = NULL;
-	char *hold = NULL;
-	char delimiters[] = " \t\n";
+	char *token, *hold;
 
-	/*strtok_r returns a character pointer*/
-	token = strtok_r(s, delimiters, &hold);
+	token = strtok_r(s, " \t\n", &hold);
 	status = check_if_comment(&token);
 	if (status == 1)
 		return (0);
@@ -24,7 +21,7 @@ int tokenize_line(char *s, char *tokens[])
 	{
 		tokens[i] = token;
 
-		token = strtok_r(NULL, delimiters, &hold);
+		token = strtok_r(NULL, " \t\n", &hold);
 	}
 
 	return (1);
